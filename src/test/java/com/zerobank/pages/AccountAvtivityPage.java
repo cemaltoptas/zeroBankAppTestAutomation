@@ -29,6 +29,13 @@ public class AccountAvtivityPage extends BasePage {
     @FindBy(xpath = "//div[@id='filtered_transactions_for_account']//tbody/tr//td[2]")
     public List<WebElement> descriptionTableResult;
 
+    @FindBy(xpath = "//*[@id='filtered_transactions_for_account']/table/tbody/tr/td[3]")
+    public List<WebElement> depositeTableResult;
+
+    @FindBy(xpath = "//*[@id='filtered_transactions_for_account']/table/tbody/tr/td[3]")
+    public List<WebElement> withdrawalTableResult;
+
+
     //Description
     @FindBy(css = "#aa_description")
     public WebElement descroptionInputBox;
@@ -107,7 +114,7 @@ public class AccountAvtivityPage extends BasePage {
         for (String dates : listDates) {
             // SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
             Date dateInTable = date.parse(dates);
-            Assert.assertFalse(dd.compareTo(dateInTable) <= 0 && dd.compareTo(dateInTable) >= 0);
+            Assert.assertFalse(dd.compareTo(dateInTable) == 0);
         }
     }
 

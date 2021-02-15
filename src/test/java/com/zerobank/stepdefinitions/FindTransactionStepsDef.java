@@ -8,9 +8,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 
 import java.text.ParseException;
 import java.util.List;
+import java.util.WeakHashMap;
 
 public class FindTransactionStepsDef extends BasePage {
 
@@ -74,6 +76,44 @@ public class FindTransactionStepsDef extends BasePage {
     public void results_table_should_only_show_descriptions_containing(String descriptionWord) {
 
         new AccountAvtivityPage().verifyingDescriptionWithTableResults(descriptionWord);
+    }
+
+    @Then("results table should show at least one result under Deposit")
+    public void results_table_should_show_at_least_one_result_under_Deposit() {
+        BrowserUtils.waitFor(2);
+
+        int counter=0;
+        List<String> depositColumn = BrowserUtils.getElementsText(new AccountAvtivityPage().depositeTableResult);
+        for (String s : depositColumn) {
+
+            if (!s.isEmpty()){
+                counter++;
+            }
+        }
+        Assert.assertTrue(counter!=0);
+    }
+
+    @Then("results table should show at least one result under Withdrawal")
+    public void results_table_should_show_at_least_one_result_under_Withdrawal() {
+
+    }
+
+    @When("user selects type {string}")
+    public void user_selects_type(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("results table should show no result under Withdrawal")
+    public void results_table_should_show_no_result_under_Withdrawal() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("results table should show no result under Deposit")
+    public void results_table_should_show_no_result_under_Deposit() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
     }
 }
 
