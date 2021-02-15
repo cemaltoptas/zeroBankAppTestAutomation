@@ -61,7 +61,6 @@ public class AccountAvtivityPage extends BasePage {
     //It's navigating through tabs
     public void navigateToTabMenu(String tabName) {
         BrowserUtils.waitFor(2);
-
         WebElement tab = Driver.get().findElement(By.xpath("//li[.='" + tabName + "']"));
         tab.click();
     }
@@ -81,6 +80,7 @@ public class AccountAvtivityPage extends BasePage {
 
     public void verifyingDatesWithTableResults(String fromDate, String toDate) throws ParseException {
 
+        BrowserUtils.waitFor(2);
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
 
         Date fdate = fmt.parse(fromDate);
@@ -98,6 +98,7 @@ public class AccountAvtivityPage extends BasePage {
 
     public void verifyingDatesWithTableResults(String dateNotContain) throws ParseException {
 
+        BrowserUtils.waitFor(2);
         SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
         Date dd = date.parse(dateNotContain);
 
@@ -112,10 +113,13 @@ public class AccountAvtivityPage extends BasePage {
 
     public void verifyingDescriptionWithTableResults(String description) {
 
-        List<String> descriptionColumn = BrowserUtils.getElementsText(descriptionTableResult);
-        for (String s : descriptionColumn) {
-            Assert.assertTrue("Verifying if ONLINE contains", s.contains(description));
+        BrowserUtils.waitFor(2);
+        List<WebElement> descriptionColumn =descriptionTableResult;
+        for (WebElement s : descriptionColumn) {
+            String column=s.getText();
+            Assert.assertTrue(column.contains(description));
         }
+
     }
 }
 
