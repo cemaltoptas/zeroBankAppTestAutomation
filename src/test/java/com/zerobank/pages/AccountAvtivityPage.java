@@ -23,10 +23,10 @@ public class AccountAvtivityPage extends BasePage {
     //Find Transaction Tab---------------------------
 
     //showing table result
-    @FindBy(xpath = "(//table[contains(@class,'table-hover')])[2]/tbody/tr[*]/td[1]")
+    @FindBy(xpath = "//div[@id='filtered_transactions_for_account']//tbody/tr//td[1]")
     public List<WebElement> dateTableResult;
 
-    @FindBy(xpath = "(//table[contains(@class,'table-hover')])[2]/tbody/tr[*]/td[2]")
+    @FindBy(xpath = "//div[@id='filtered_transactions_for_account']//tbody/tr//td[2]")
     public List<WebElement> descriptionTableResult;
 
     //Description
@@ -66,12 +66,14 @@ public class AccountAvtivityPage extends BasePage {
     }
 
     public void inputDescription(String description) {
+        BrowserUtils.waitFor(1);
         this.descroptionInputBox.clear();
         this.descroptionInputBox.sendKeys(description);
     }
 
     public void inputDatesFromTo(String fromDate, String toDate) {
 
+        BrowserUtils.waitFor(1);
         this.startingDate.clear();
         this.startingDate.sendKeys(fromDate);
         this.endingDate.clear();
@@ -80,7 +82,6 @@ public class AccountAvtivityPage extends BasePage {
 
     public void verifyingDatesWithTableResults(String fromDate, String toDate) throws ParseException {
 
-        BrowserUtils.waitFor(2);
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
 
         Date fdate = fmt.parse(fromDate);
@@ -93,7 +94,6 @@ public class AccountAvtivityPage extends BasePage {
             Date dateInTable = fmt.parse(dates);
             Assert.assertTrue(fdate.compareTo(dateInTable) <= 0 && tdate.compareTo(dateInTable) >= 0);
         }
-
     }
 
     public void verifyingDatesWithTableResults(String dateNotContain) throws ParseException {
@@ -114,12 +114,12 @@ public class AccountAvtivityPage extends BasePage {
     public void verifyingDescriptionWithTableResults(String description) {
 
         BrowserUtils.waitFor(2);
-        List<WebElement> descriptionColumn =descriptionTableResult;
+        List<WebElement> descriptionColumn = descriptionTableResult;
         for (WebElement s : descriptionColumn) {
-            String column=s.getText();
+            String column = s.getText();
+            System.out.println(column);
             Assert.assertTrue(column.contains(description));
         }
-
     }
 }
 
