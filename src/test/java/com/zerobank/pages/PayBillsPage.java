@@ -27,6 +27,11 @@ public class PayBillsPage extends  BasePage{
     //Add button locator
     @FindBy(id = "add_new_payee")
     public WebElement addButton;
+
+    //Allert pop-up message after adding payee
+    @FindBy(id = "alert_content")
+    public WebElement popUpMessage;
+    //
     //====================================
 
 
