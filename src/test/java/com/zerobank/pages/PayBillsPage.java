@@ -30,6 +30,8 @@ public class PayBillsPage extends  BasePage{
     //====================================
 
 
+    //Retriving informations from data table by the given feature file
+    //Adding new payee
     public void addNewPayee(String payeeName,String payeeAddress,
                             String account, String payeeDetails ){
         BrowserUtils.waitFor(1);
