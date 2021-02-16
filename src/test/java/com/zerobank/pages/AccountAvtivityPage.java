@@ -20,6 +20,11 @@ public class AccountAvtivityPage extends BasePage {
     @FindBy(id = "aa_accountId")
     public WebElement accountList;
 
+    @FindBy(id = "aa_type")
+    public WebElement typeDropDownList;
+
+
+
     //Find Transaction Tab---------------------------
 
     //showing table result
@@ -32,8 +37,10 @@ public class AccountAvtivityPage extends BasePage {
     @FindBy(xpath = "//*[@id='filtered_transactions_for_account']/table/tbody/tr/td[3]")
     public List<WebElement> depositeTableResult;
 
-    @FindBy(xpath = "//*[@id='filtered_transactions_for_account']/table/tbody/tr/td[3]")
+    @FindBy(xpath = "//*[@id='filtered_transactions_for_account']/table/tbody/tr/td[4]")
     public List<WebElement> withdrawalTableResult;
+
+
 
 
     //Description
@@ -127,6 +134,12 @@ public class AccountAvtivityPage extends BasePage {
             System.out.println(column);
             Assert.assertTrue(column.contains(description));
         }
+    }
+    public void selectType(String typeValue){
+        BrowserUtils.waitFor(2);
+        Select list = new Select(typeDropDownList);
+        list.selectByVisibleText(typeValue);
+
     }
 }
 

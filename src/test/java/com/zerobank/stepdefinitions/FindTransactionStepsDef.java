@@ -8,11 +8,10 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 
 import java.text.ParseException;
 import java.util.List;
-import java.util.WeakHashMap;
+
 
 public class FindTransactionStepsDef extends BasePage {
 
@@ -35,6 +34,7 @@ public class FindTransactionStepsDef extends BasePage {
 
     @When("clicks search")
     public void clicks_search() {
+
         new AccountAvtivityPage().findButton.click();
     }
 
@@ -80,40 +80,69 @@ public class FindTransactionStepsDef extends BasePage {
 
     @Then("results table should show at least one result under Deposit")
     public void results_table_should_show_at_least_one_result_under_Deposit() {
-        BrowserUtils.waitFor(2);
 
-        int counter=0;
+        BrowserUtils.waitFor(2);
+        int counter = 0;
         List<String> depositColumn = BrowserUtils.getElementsText(new AccountAvtivityPage().depositeTableResult);
         for (String s : depositColumn) {
 
-            if (!s.isEmpty()){
+            if (!s.isEmpty()) {
                 counter++;
             }
         }
-        Assert.assertTrue(counter!=0);
+        Assert.assertTrue(counter != 0);
     }
 
     @Then("results table should show at least one result under Withdrawal")
     public void results_table_should_show_at_least_one_result_under_Withdrawal() {
+        BrowserUtils.waitFor(2);
+        int counter = 0;
+        List<String> depositColumn = BrowserUtils.getElementsText(new AccountAvtivityPage().withdrawalTableResult);
+        for (String s : depositColumn) {
+
+            if (!s.isEmpty()) {
+                counter++;
+            }
+        }
+        Assert.assertTrue(counter != 0);
 
     }
 
     @When("user selects type {string}")
-    public void user_selects_type(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_selects_type(String typeValue) {
+        AccountAvtivityPage accountAvtivityPage = new AccountAvtivityPage();
+        accountAvtivityPage.selectType(typeValue);
+        accountAvtivityPage.findButton.click();
+
     }
 
     @Then("results table should show no result under Withdrawal")
     public void results_table_should_show_no_result_under_Withdrawal() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        BrowserUtils.waitFor(2);
+        int counter = 0;
+        List<String> depositColumn = BrowserUtils.getElementsText(new AccountAvtivityPage().withdrawalTableResult);
+        for (String s : depositColumn) {
+
+            if (!s.isEmpty()) {
+                counter++;
+            }
+        }
+
+        Assert.assertTrue(counter == 0);
     }
 
     @Then("results table should show no result under Deposit")
     public void results_table_should_show_no_result_under_Deposit() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        BrowserUtils.waitFor(2);
+        int counter = 0;
+        List<String> depositColumn = BrowserUtils.getElementsText(new AccountAvtivityPage().depositeTableResult);
+        for (String s : depositColumn) {
+
+            if (!s.isEmpty()) {
+                counter++;
+            }
+        }
+
+        Assert.assertTrue(counter == 0);
     }
 }
-
