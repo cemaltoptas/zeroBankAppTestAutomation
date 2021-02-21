@@ -1,21 +1,11 @@
 package com.zerobank.stepdefinitions;
 
-import com.zerobank.pages.*;
-import com.zerobank.utilities.BrowserUtils;
-import com.zerobank.utilities.ConfigurationReader;
-import com.zerobank.utilities.Driver;
-import io.cucumber.java.bs.A;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
+import com.zerobank.pages.AccountAvtivityPage;
+import com.zerobank.pages.AccountSummaryPage;
+import com.zerobank.pages.BasePage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class AccountActivityNavigationStepDef extends BasePage {
 
