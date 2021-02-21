@@ -9,7 +9,7 @@ Feature:Only authorized users should be able to login to the application.
       | passWord | password |
     Then the user should see Account Summary page
 
-  @wip
+
   Scenario Outline: : User logs in with invalid credentials
     When the user eneters wrong "<username>" and "<password>"
     Then the user gets the following "<error message>"

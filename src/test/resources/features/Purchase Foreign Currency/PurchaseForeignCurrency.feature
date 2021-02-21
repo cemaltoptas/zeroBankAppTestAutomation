@@ -1,7 +1,12 @@
+@wip
 Feature: Purchase Foreign Currency
 
   Background:
-    Given the user is logged in
+    Given the user is on the login page
+    When the user enters username and password
+      | userName | username |
+      | passWord | password |
+    Then the user should see Account Summary page
     And the user clicks on "Pay Bills"
     Given the user accesses the "Purchase Foreign Currency" tab
 
