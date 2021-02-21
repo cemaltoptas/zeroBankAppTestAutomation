@@ -24,12 +24,12 @@ Feature: Purchase Foreign Currency
       | Sweden (krona)        |
       | Singapore (dollar)    |
       | Thailand (baht)       |
-  @wip
+
   Scenario: Error message for not selecting currency
 
     When user tries to calculate cost without selecting a currency
     Then error message should be displayed
-  @wip
+
   Scenario: Error message for not entering value
 
     When user tries to calculate cost without entering a value

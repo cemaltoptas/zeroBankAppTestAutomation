@@ -2,15 +2,9 @@ package com.zerobank.stepdefinitions;
 
 import com.zerobank.pages.PayBillsPage;
 import com.zerobank.utilities.BrowserUtils;
-import com.zerobank.utilities.Driver;
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 

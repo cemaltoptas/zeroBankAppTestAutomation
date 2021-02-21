@@ -19,16 +19,12 @@ import java.util.concurrent.TimeUnit;
 
 public class AccountActivityNavigationStepDef extends BasePage {
 
-    @Given("the user is logged in")
-    public void the_user_is_logged_in() {
 
-        LoginPage loginPage = new LoginPage();
-        loginPage.UserLogin();
 
-        String expectedPageTitle = "Zero - Account Summary";
+      /*  String expectedPageTitle = "Zero - Account Summary";
         String actualPageTitle = Driver.get().getTitle();
-        Assert.assertEquals(expectedPageTitle, actualPageTitle);
-    }
+        Assert.assertEquals(expectedPageTitle, actualPageTitle);*/
+
 
     @When("the user clicks on {string} link on the Account Summary page")
     public void the_user_clicks_on_link_on_the_Account_Summary_page(String LinkName) {

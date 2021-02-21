@@ -19,7 +19,6 @@ public class Hooks {
 
         Driver.get().get(ConfigurationReader.get("url"));
         Driver.get().manage().window().maximize();
-        Driver.get().findElement(By.id("signin_button")).click();
         Driver.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 

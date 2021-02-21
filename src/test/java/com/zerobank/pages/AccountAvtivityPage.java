@@ -10,8 +10,6 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -22,8 +20,6 @@ public class AccountAvtivityPage extends BasePage {
 
     @FindBy(id = "aa_type")
     public WebElement typeDropDownList;
-
-
 
     //Find Transaction Tab---------------------------
 
@@ -40,9 +36,6 @@ public class AccountAvtivityPage extends BasePage {
     @FindBy(xpath = "//*[@id='filtered_transactions_for_account']/table/tbody/tr/td[4]")
     public List<WebElement> withdrawalTableResult;
 
-
-
-
     //Description
     @FindBy(css = "#aa_description")
     public WebElement descroptionInputBox;
@@ -54,10 +47,6 @@ public class AccountAvtivityPage extends BasePage {
     //Ending Dates
     @FindBy(css = "#aa_toDate")
     public WebElement endingDate;
-
-    //Initial Amount
-    @FindBy(css = "aa_fromAmount")
-    public WebElement initialAmount;
 
     //Clicking Find Button
     @FindBy(css = ".btn.btn-primary")
@@ -121,7 +110,7 @@ public class AccountAvtivityPage extends BasePage {
         for (String dates : listDates) {
             // SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
             Date dateInTable = date.parse(dates);
-            Assert.assertFalse(dd.compareTo(dateInTable) == 0);
+            Assert.assertNotEquals(0, dd.compareTo(dateInTable));
         }
     }
 

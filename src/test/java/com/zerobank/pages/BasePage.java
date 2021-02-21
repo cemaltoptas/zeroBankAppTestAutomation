@@ -2,7 +2,6 @@ package com.zerobank.pages;
 
 import com.zerobank.utilities.BrowserUtils;
 import com.zerobank.utilities.Driver;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,14 +21,13 @@ public abstract class BasePage {
 
     public String getPageTitle() {
         BrowserUtils.waitFor(3);
-        String actualTtitle = Driver.get().getTitle();
-        return actualTtitle;
+        return Driver.get().getTitle();
 
     }
 
-    public void navigateModule(String linkText){
+    public void navigateModule(String linkText) {
 
-        WebElement module =Driver.get().findElement(By.xpath("//li[.='"+linkText+"']"));
+        WebElement module = Driver.get().findElement(By.xpath("//li[.='" + linkText + "']"));
         module.click();
 
 
